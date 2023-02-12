@@ -4,7 +4,7 @@ async function sendRequestToOpenAI(text) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": "Bearer <API_KEY>"
+      "Authorization": "Bearer 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"
     },
     body: JSON.stringify({
       prompt: text,
