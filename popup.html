@@ -1,48 +1,20 @@
-popup.html:
 <!DOCTYPE html>
 <html>
   <head>
     <style>
-      input[type="text"], textarea {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        box-sizing: border-box;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-        font-size: 16px;
-        resize: none;
-      }
-      input[type="button"] {
-        width: 100%;
-        background-color: #4CAF50;
-        color: white;
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-      input[type="button"]:hover {
-        background-color: #3e8e41;
-      }
-      #output {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        box-sizing: border-box;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-        font-size: 16px;
-        resize: none;
+      button {
+        width: 75px;
+        height: 30px;
+        font-size: 14px;
       }
     </style>
   </head>
   <body>
-    <textarea id="input"></textarea>
-    <input type="button" value="Get Answer" id="submit-button"/>
-    <br>
-    <textarea id="output" readonly></textarea>
-    <script src="popup.js"></script>
+    <button id="get-answer-btn">Get answer</button>
+    <script>
+      document.getElementById("get-answer-btn").addEventListener("click", function() {
+        alert("Button was clicked!");
+      });
+    </script>
   </body>
 </html>
