@@ -1,21 +1,27 @@
-{
-  "manifest_version": 3,
-  "name": "OpenAI Extension",
-  "description": "Get answers to questions using OpenAI API",
-  "version": "1.0",
-  "browser_action": {
-    "default_popup": "popup.html",
-    "default_icon": "icon.png"
-  },
-  "permissions": [
-    "activeTab",
-    "https://api.openai.com/",
-    "storage"
-  ],
-  "icons": {
-    "16": "icon16.png",
-    "32": "icon32.png",
-    "48": "icon48.png",
-    "128": "icon128.png"
-  }
+popup.js:
+async function sendRequestToOpenAI(text) {
+  const response = await fetch("https://api.openai.com/v1/engines/davinci/jobs", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer <API_KEY>"
+    },
+    body: JSON.stringify({
+      prompt: text,
+      max_tokens: 100,
+      n: 1,
+      stop: "",
+      temperature: 0.5
+    })
+  });
+  const json = await response.json();
+  const reply = json.choices[0].text;
+  document.getElementById("output").value = reply;
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("submit-button").addEventListener("click", function() {
+    const text = document.getElementById("input").value;
+    sendRequestToOpenAI(text);
+  });
+});
