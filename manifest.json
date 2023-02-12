@@ -11,8 +11,5 @@
     "activeTab",
     "https://api.openai.com/",
     "storage"
-  ],
-  "icons": {
-    "16": "icon16.png",
-  }
+  ]
 }
